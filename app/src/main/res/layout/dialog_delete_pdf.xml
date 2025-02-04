@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintDialogDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginVertical="230dp"
+        android:background="@drawable/shape_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/dialogDeleteText1"
+            style="@style/TEXT"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Deseja mesmo deletar este arquivo?"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonDialogSIM"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_button"
+            android:layout_margin="10dp"
+            android:text="SIM"
+            android:gravity="center"
+            style="@style/TEXT_WHITE"
+            android:textSize="18dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/buttonDialogNAO"
+            app:layout_constraintTop_toBottomOf="@id/dialogDeleteText1"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonDialogNAO"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="NÃO"
+            android:gravity="center"
+            style="@style/TEXT_WHITE"
+            android:textSize="18dp"
+            android:background="@drawable/shape_button"
+            app:layout_constraintLeft_toRightOf="@id/buttonDialogSIM"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialogDeleteText1"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

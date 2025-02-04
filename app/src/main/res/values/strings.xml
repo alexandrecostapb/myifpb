@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MyIFPB</string>
+    <string name="sobre_app">O MyIFPB é um aplicativo desenvolvido na disciplina Tópicos Especiais em Informática, com o professor Alexandre Costa, para facilitar o acesso aos sistemas do Instituto Federal da Paraíba. Ele foi criado pensando nos alunos da rede de ensino, pesquisa e extensão, tornando a experiência mais prática e acessível.</string>
+    <string name="sobre_cabrueira">Projetista e desenvolvedor do aplicativo, é técnico em informática formado no Instituto Federal da Paraíba Campus Santa Luzia.</string>
+    <string name="sobre_professor">Doutor em Ciência da Computação pela Universidade Federal de Campina Grande e professor do Instituto Federal da Paraíba.</string>
+</resources>

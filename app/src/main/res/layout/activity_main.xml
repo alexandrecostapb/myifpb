@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint1"
+        style="@style/BACKGROUND_DARK"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textTurno"
+            style="@style/TEXT_WHITE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Turno"
+            android:textSize="22dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textNome"
+            style="@style/TEXT_WHITE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="discente!"
+            android:textSize="22dp"
+            app:layout_constraintLeft_toRightOf="@id/textTurno"
+            app:layout_constraintTop_toTopOf="@id/textTurno" />
+
+        <TextView
+            android:id="@+id/textData"
+            style="@style/TEXT_WHITE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data atual"
+            android:textSize="14dp"
+            app:layout_constraintLeft_toLeftOf="@id/textTurno"
+            app:layout_constraintTop_toBottomOf="@id/textTurno" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonHorario"
+            style="@style/TEXT"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/shape_button_layout_dark"
+            android:drawableStart="@drawable/vector_asset_relogio"
+            android:drawablePadding="8dp"
+            android:padding="3dp"
+            android:text="HORÁRIOS"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        style="@style/BACKGROUND_LITE"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraint1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/components_green"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/imageSliderNotices"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:iss_auto_cycle="true"
+                    app:iss_corner_radius="20"
+                    app:iss_delay="2000"
+                    app:iss_period="2000"
+                    app:iss_title_background="@drawable/gradient" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/text2"
+                style="@style/TEXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Acesso a sistemas:"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="@id/card1"
+                app:layout_constraintTop_toBottomOf="@id/card1" />
+
+            <TextView
+                android:id="@+id/subtext2"
+                style="@style/SUBTEXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Acesso aos portais do instituto e suas ferramentas:"
+                android:textSize="14dp"
+                app:layout_constraintLeft_toLeftOf="@id/text2"
+                app:layout_constraintTop_toBottomOf="@id/text2" />
+
+            <ImageView
+                android:id="@+id/imageSuap"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/suap"
+                app:layout_constraintLeft_toLeftOf="@id/card1"
+                app:layout_constraintRight_toLeftOf="@id/imageMoodle"
+                app:layout_constraintTop_toBottomOf="@id/subtext2" />
+
+            <ImageView
+                android:id="@+id/imageMoodle"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:src="@drawable/moodle"
+                app:layout_constraintLeft_toRightOf="@id/imageSuap"
+                app:layout_constraintRight_toLeftOf="@id/imageBiblioteca"
+                app:layout_constraintTop_toTopOf="@id/imageSuap" />
+
+            <ImageView
+                android:id="@+id/imageBiblioteca"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:src="@drawable/biblioteca"
+                app:layout_constraintLeft_toRightOf="@id/imageMoodle"
+                app:layout_constraintRight_toRightOf="@id/card1"
+                app:layout_constraintTop_toTopOf="@id/imageSuap" />
+
+            <ImageView
+                android:id="@+id/imagePortalEstudante"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/portal_do_estudante"
+                app:layout_constraintLeft_toLeftOf="@id/card1"
+                app:layout_constraintRight_toLeftOf="@id/imageMoodle"
+                app:layout_constraintTop_toBottomOf="@id/imageSuap" />
+
+            <ImageView
+                android:id="@+id/imageRepositorio"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:src="@drawable/repositorio_digital"
+                app:layout_constraintLeft_toRightOf="@id/imageSuap"
+                app:layout_constraintRight_toLeftOf="@id/imageBiblioteca"
+                app:layout_constraintTop_toTopOf="@id/imagePortalEstudante" />
+
+            <ImageView
+                android:id="@+id/imageEventos"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:src="@drawable/eventos"
+                app:layout_constraintLeft_toRightOf="@id/imageMoodle"
+                app:layout_constraintRight_toRightOf="@id/card1"
+                app:layout_constraintTop_toTopOf="@id/imagePortalEstudante" />
+
+            <ImageView
+                android:id="@+id/imagePeriodicos"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/periodicos"
+                app:layout_constraintLeft_toLeftOf="@id/card1"
+                app:layout_constraintRight_toLeftOf="@id/imageMoodle"
+                app:layout_constraintTop_toBottomOf="@id/imagePortalEstudante" />
+
+            <ImageView
+                android:id="@+id/imageEditora"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:src="@drawable/editora_ifpb"
+                app:layout_constraintLeft_toRightOf="@id/imageSuap"
+                app:layout_constraintRight_toLeftOf="@id/imageBiblioteca"
+                app:layout_constraintTop_toTopOf="@id/imagePeriodicos" />
+
+            <ImageView
+                android:id="@+id/imageSaber"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:src="@drawable/saber_ifpb"
+                app:layout_constraintLeft_toRightOf="@id/imageMoodle"
+                app:layout_constraintRight_toRightOf="@id/card1"
+                app:layout_constraintTop_toTopOf="@id/imagePeriodicos" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonSobre"
+                style="@style/TEXT"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="30dp"
+
+                android:background="@drawable/shape_button_layout_dark"
+                android:drawableStart="@drawable/vector_asset_question"
+                android:drawableTint="@color/background_dark"
+                android:paddingHorizontal="10dp"
+                android:text="SOBRE"
+                android:textSize="12dp"
+                ads:layout_constraintLeft_toLeftOf="@id/card1"
+                ads:layout_constraintRight_toRightOf="@id/card1"
+                ads:layout_constraintTop_toBottomOf="@id/imageEditora" />
+
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-5618719401023913/2288278687"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonSobre"
+                ads:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
