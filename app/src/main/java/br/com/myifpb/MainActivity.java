@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.pdf.PdfRenderer;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
@@ -28,12 +27,6 @@ import androidx.core.view.WindowInsetsCompat;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.interfaces.ItemClickListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -66,13 +59,15 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+      /*
         new Thread(
+
                 () -> {
                     MobileAds.initialize(MainActivity.this, initializationStatus -> {
                     });
                 }
         ).start();
-
+      */
         AppDatabase instance = AppDatabase.getInstance(getApplicationContext());
 
         textViewData = findViewById(R.id.textData);
@@ -278,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
         imageEditora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("http://editora.ifpb.edu.br/ifpb");
+                iniciarWebViewActivity("https://editora.ifpb.edu.br/ifpb");
                 //uri = Uri.parse("http://editora.ifpb.edu.br/ifpb");
                 //startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
@@ -292,9 +287,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        AdView adBanner = findViewById(R.id.adBanner);
+       /* AdView adBanner = findViewById(R.id.adBanner);
         AdRequest adRequest = new AdRequest.Builder().build();
         adBanner.loadAd(adRequest);
+
+        */
     }
 
     public void iniciarWebViewActivity(String url){

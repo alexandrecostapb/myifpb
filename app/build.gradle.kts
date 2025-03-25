@@ -10,8 +10,8 @@ android {
         applicationId = "br.com.myifpb"
         minSdk = 29
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,7 +38,6 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    implementation("com.google.android.gms:play-services-ads:23.6.0")
 
     implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.1")
 
