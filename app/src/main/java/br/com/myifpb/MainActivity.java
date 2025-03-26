@@ -82,22 +82,18 @@ public class MainActivity extends AppCompatActivity {
         imageSlider.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemSelected(int i) {
+                String url = null;
                 if (i == 0) {
-                    iniciarWebViewActivity("https://www.ifpb.edu.br/");
-                    //uri = Uri.parse("https://www.ifpb.edu.br/");
-                    //startActivity(new Intent(Intent.ACTION_VIEW, uri));
-
+                    url = "https://www.ifpb.edu.br/";
                 } else if (i == 1) {
-                    iniciarWebViewActivity("https://estudante.ifpb.edu.br/");
-                    //uri = Uri.parse("https://estudante.ifpb.edu.br/");
-                    //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                    url = "https://estudante.ifpb.edu.br/";
                 } else if (i == 2) {
-                    iniciarWebViewActivity("https://estudante.ifpb.edu.br/processoseletivo/");
-                    //uri = Uri.parse("https://estudante.ifpb.edu.br/processoseletivo/");
-                    //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                    url = "https://estudante.ifpb.edu.br/processoseletivo/";
                 } else {
-                    Toast.makeText(getApplicationContext(), "voot", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Opção inválida", Toast.LENGTH_SHORT).show();
                 }
+                // iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
 
@@ -152,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
                     dialogSubtext1 = view.findViewById(R.id.dialogSubtext1);
 
 
-
                     dialogHorarioDismiss.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -171,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
                             } catch (Exception e) {
                                 Toast.makeText(view.getContext(), "Não foi possível salvar este documento!", Toast.LENGTH_SHORT).show();
                             }
-
 
 
                         }
@@ -217,73 +211,75 @@ public class MainActivity extends AppCompatActivity {
         suapImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("https://suap.ifpb.edu.br/accounts/login/?next=/");
-               // uri = Uri.parse("https://suap.ifpb.edu.br/accounts/login/?next=/");
-               // startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                String url = "https://suap.ifpb.edu.br/accounts/login/?next=/";
+                // iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
         moodleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("https://presencial.ifpb.edu.br/login/index.php");
-                //uri = Uri.parse("https://presencial.ifpb.edu.br/login/index.php");
-                //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                String url = "https://presencial.ifpb.edu.br/login/index.php";
+                // iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
         bibliotecaImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("https://biblioteca.ifpb.edu.br/");
-                //uri = Uri.parse("https://biblioteca.ifpb.edu.br/");
-                //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                String url = "https://biblioteca.ifpb.edu.br/";
+                // iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
         portalEstudanteImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("https://estudante.ifpb.edu.br/");
-                //uri = Uri.parse("https://estudante.ifpb.edu.br/");
-                //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                String url = "https://estudante.ifpb.edu.br/";
+                // iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
         repositorioImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("https://repositorio.ifpb.edu.br/");
-                //uri = Uri.parse("https://repositorio.ifpb.edu.br/");
-                //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                String url = "https://repositorio.ifpb.edu.br/";
+                // iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
         eventosImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("https://eventos.ifpb.edu.br/");
-                //uri = Uri.parse("https://eventos.ifpb.edu.br/");
-                //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                String url = "https://eventos.ifpb.edu.br/";
+                //iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
         imagePeriodicos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("https://periodicos.ifpb.edu.br/");
-                //uri = Uri.parse("https://periodicos.ifpb.edu.br/");
-                //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                String url = "https://periodicos.ifpb.edu.br/";
+                // iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
+
         imageEditora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("https://editora.ifpb.edu.br/ifpb");
-                //uri = Uri.parse("http://editora.ifpb.edu.br/ifpb");
-                //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                String url = "https://editora.ifpb.edu.br/";
+                // iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
+
         imageSaber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarWebViewActivity("https://suap.ifpb.edu.br/bi/");
-                //uri = Uri.parse("https://suap.ifpb.edu.br/bi/");
-                //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                String url = "https://suap.ifpb.edu.br/bi/";
+                //iniciarWebViewActivity(url);
+                abrirUrl(url);
             }
         });
 
@@ -294,10 +290,15 @@ public class MainActivity extends AppCompatActivity {
         */
     }
 
-    public void iniciarWebViewActivity(String url){
-        Intent intent = new Intent(getApplicationContext(),WebViewMainActivity.class);
-        intent.putExtra("url",url);
+    public void iniciarWebViewActivity(String url) {
+        Intent intent = new Intent(getApplicationContext(), WebViewMainActivity.class);
+        intent.putExtra("url", url);
         startActivity(intent);
+    }
+
+    public void abrirUrl(String url) {
+        uri = Uri.parse(url);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 
     @Override
