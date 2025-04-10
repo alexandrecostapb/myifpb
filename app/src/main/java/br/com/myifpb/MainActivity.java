@@ -59,15 +59,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-      /*
-        new Thread(
-
-                () -> {
-                    MobileAds.initialize(MainActivity.this, initializationStatus -> {
-                    });
-                }
-        ).start();
-      */
         AppDatabase instance = AppDatabase.getInstance(getApplicationContext());
 
         textViewData = findViewById(R.id.textData);
@@ -111,7 +102,11 @@ public class MainActivity extends AppCompatActivity {
         buttonSobre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ActivitySobre.class));
+                try {
+                    startActivity(new Intent(getApplicationContext(), ActivitySobre.class));
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Não foi possível abrir a tela de 'Sobre'!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -119,91 +114,103 @@ public class MainActivity extends AppCompatActivity {
         horarioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Horario> listaDeHorarios = instance.getHorarioDAO().list();
-                if (listaDeHorarios.isEmpty()) {
-                    ConstraintLayout constraintLayout = findViewById(R.id.constraintDialog);
-                    View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog_horario, constraintLayout);
+                try {
+                    List<Horario> listaDeHorarios = instance.getHorarioDAO().list();
+                    if (listaDeHorarios.isEmpty()) {
+                        ConstraintLayout constraintLayout = findViewById(R.id.constraintDialog);
+                        View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog_horario, constraintLayout);
 
-                    adicionarHorarioButton = view.findViewById(R.id.dialogButtonAdicionarHorario);
-                    adicionarHorarioButton.setVisibility(View.INVISIBLE);
-                    adicionarHorarioButton.setEnabled(false);
+                        adicionarHorarioButton = view.findViewById(R.id.dialogButtonAdicionarHorario);
+                        adicionarHorarioButton.setVisibility(View.INVISIBLE);
+                        adicionarHorarioButton.setEnabled(false);
 
-                    buscarHorarioButton2 = view.findViewById(R.id.dialogButtonBuscarHorario2);
-                    buscarHorarioButton2.setVisibility(View.INVISIBLE);
-                    buscarHorarioButton2.setEnabled(false);
+                        buscarHorarioButton2 = view.findViewById(R.id.dialogButtonBuscarHorario2);
+                        buscarHorarioButton2.setVisibility(View.INVISIBLE);
+                        buscarHorarioButton2.setEnabled(false);
 
-                    dialogImageHorario = view.findViewById(R.id.dialogImageHorario);
-                    dialogImageHorario.setEnabled(false);
-                    dialogImageHorario.setVisibility(View.INVISIBLE);
+                        dialogImageHorario = view.findViewById(R.id.dialogImageHorario);
+                        dialogImageHorario.setEnabled(false);
+                        dialogImageHorario.setVisibility(View.INVISIBLE);
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                    builder.setView(view);
-                    final AlertDialog alertDialogHorario = builder.create();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        builder.setView(view);
+                        final AlertDialog alertDialogHorario = builder.create();
 
-                    buscarHorarioButton = view.findViewById(R.id.dialogButtonBuscarHorario);
+                        buscarHorarioButton = view.findViewById(R.id.dialogButtonBuscarHorario);
 
-                    dialogHorarioDismiss = view.findViewById(R.id.dialogHorarioDissmis);
-                    dialogImageIllustration = view.findViewById(R.id.dialogImageIllustration);
-                    dialogText2 = view.findViewById(R.id.dialogText2);
-                    dialogSubtext1 = view.findViewById(R.id.dialogSubtext1);
+                        dialogHorarioDismiss = view.findViewById(R.id.dialogHorarioDissmis);
+                        dialogImageIllustration = view.findViewById(R.id.dialogImageIllustration);
+                        dialogText2 = view.findViewById(R.id.dialogText2);
+                        dialogSubtext1 = view.findViewById(R.id.dialogSubtext1);
 
 
-                    dialogHorarioDismiss.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            alertDialogHorario.dismiss();
-                        }
-                    });
-
-                    adicionarHorarioButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            try {
-                                Horario horario = new Horario(fotoEmByte);
-                                instance.getHorarioDAO().insert(horario);
-                                alertDialogHorario.dismiss();
-                                Toast.makeText(view.getContext(), "Documento salvo com sucesso!", Toast.LENGTH_SHORT).show();
-                            } catch (Exception e) {
-                                Toast.makeText(view.getContext(), "Não foi possível salvar este documento!", Toast.LENGTH_SHORT).show();
+                        dialogHorarioDismiss.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                try {
+                                    alertDialogHorario.dismiss();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    finish();
+                                }
                             }
+                        });
 
-
-                        }
-                    });
-
-                    buscarHorarioButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            try {
-                                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                                intent.setType("application/pdf");
-                                startActivityForResult(Intent.createChooser(intent, "Select PDF"), 2);
-                            } catch (Exception e) {
-                                Toast.makeText(view.getContext(), "Não foi possível acessar a galeria", Toast.LENGTH_SHORT).show();
+                        adicionarHorarioButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                try {
+                                    Horario horario = new Horario(fotoEmByte);
+                                    instance.getHorarioDAO().insert(horario);
+                                    alertDialogHorario.dismiss();
+                                    Toast.makeText(view.getContext(), "Documento salvo com sucesso!", Toast.LENGTH_SHORT).show();
+                                } catch (Exception e) {
+                                    Toast.makeText(view.getContext(), "Não foi possível salvar este documento!", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
+                        });
 
-                    buscarHorarioButton2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            try {
-                                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                                intent.setType("application/pdf");
-                                startActivityForResult(Intent.createChooser(intent, "Select PDF"), 2);
-                            } catch (Exception e) {
-                                Toast.makeText(view.getContext(), "Não foi possível acessar a galeria", Toast.LENGTH_SHORT).show();
+                        buscarHorarioButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                try {
+                                    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                                    intent.setType("application/pdf");
+                                    startActivityForResult(Intent.createChooser(intent, "Select PDF"), 2);
+                                } catch (Exception e) {
+                                    Toast.makeText(view.getContext(), "Não foi possível acessar a galeria", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
+                        });
 
-                    if (alertDialogHorario.getWindow() != null) {
-                        alertDialogHorario.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+                        buscarHorarioButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                try {
+                                    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                                    intent.setType("application/pdf");
+                                    startActivityForResult(Intent.createChooser(intent, "Select PDF"), 2);
+                                } catch (Exception e) {
+                                    Toast.makeText(view.getContext(), "Não foi possível acessar a galeria", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+                        if (alertDialogHorario.getWindow() != null) {
+                            alertDialogHorario.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+                        }
+
+                        alertDialogHorario.show();
+                    } else {
+                        try {
+                            startActivity(new Intent(MainActivity.this, ActivityPDF.class));
+                        } catch (Exception e) {
+                            Toast.makeText(getApplicationContext(), "Erro ao abrir PDF!", Toast.LENGTH_SHORT).show();
+                            instance.getHorarioDAO().delete();
+                        }
                     }
-
-                    alertDialogHorario.show();
-                } else {
-                    startActivity(new Intent(MainActivity.this, ActivityPDF.class));
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Não foi possível abrir a tela dos Horários!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -282,12 +289,6 @@ public class MainActivity extends AppCompatActivity {
                 abrirUrl(url);
             }
         });
-
-       /* AdView adBanner = findViewById(R.id.adBanner);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adBanner.loadAd(adRequest);
-
-        */
     }
 
     public void iniciarWebViewActivity(String url) {
