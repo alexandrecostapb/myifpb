@@ -7,6 +7,12 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
 public class Methods {
+    /**
+     * Este método retorna uma lista de acessos do portal com as URL de cada um.
+     * Usado para direcionar o usuário para a página selecionada que ele deseja ir.
+     *
+     * @return ArrayList com seis objetos de Acessos diferentes, cada qual correspondendo a um determinado site diferente.
+     */
     public ArrayList<Acessos> listaDeAcessos() {
         ArrayList<Acessos> acessosArrayList = new ArrayList<>();
 
@@ -22,15 +28,20 @@ public class Methods {
         Acessos acesso4 = new Acessos("PORTAL DO ESTUDANTE", "https://estudante.ifpb.edu.br/");
         acessosArrayList.add(acesso4);
 
-        Acessos acesso6 = new Acessos("REPORSITÓRIO DIGITAL", "https://repositorio.ifpb.edu.br/");
-        acessosArrayList.add(acesso6);
+        Acessos acesso5 = new Acessos("REPORSITÓRIO DIGITAL", "https://repositorio.ifpb.edu.br/");
+        acessosArrayList.add(acesso5);
 
-        Acessos acesso11 = new Acessos("EVENTOS", "https://eventos.ifpb.edu.br/");
-        acessosArrayList.add(acesso11);
+        Acessos acesso6 = new Acessos("EVENTOS", "https://eventos.ifpb.edu.br/");
+        acessosArrayList.add(acesso6);
 
         return acessosArrayList;
     }
 
+    /**
+     * Este método serve para adicionar imagens no SlideModel (Carrossel de imagens) da página principal do aplicativo.
+     *
+     * @return ArrayList de três objetos de SlideModel com as imagens para serem adicionadas ao Carrossel.
+     */
     public ArrayList<SlideModel> slideModels() {
         ArrayList<SlideModel> modelArray = new ArrayList<>();
 
@@ -41,6 +52,14 @@ public class Methods {
         return modelArray;
     }
 
+    /**
+     * Este método serve para verificar o horário que o usuário está utilizando o aplicativo, usando outros métodos
+     * que detectam o horário do dispositivo do usuário e, de acordo com o número do horário que é coletado, o método
+     * processa a informação e o transforma em uma String com textos de comprimentação adequados para o horário que o
+     * usuário se encontra.
+     *
+     * @return String de texto com comprimentos adequados para o horário que o usuário se encontra.
+     */
     public String turno() {
         String turno = "";
         int hora = ZonedDateTime.now().getHour();
@@ -53,6 +72,19 @@ public class Methods {
         }
         return turno;
     }
+
+    /**
+     * Este método é usado para identificar a data que o usuário se econtra enquanto usa o aplicativo (dia e mês). Usando
+     * outros métodos de identificação de data e fuso horários dos dispositivos dos usuários, ele coleta o número do dia
+     * e do mês e, dependendo do número que é coletado, ele processa a informação e o converte para uma String de texto
+     * com o nome do mês respectivo do número que fora coletado. Exemplo: 1 - Fevereiro, 5 - Maio.
+     *
+     * Nota: o dia não há conversão de texto porque não existe nomes para cada um dos dias do mês, mas o número do dia é
+     * coletado e convertido em String para se juntar ao do mês. Dessa forma poderá ter uma String de texto da seguinte
+     * forma: 24 de Maio.
+     *
+     * @return String de texto com a data atual do usuário no formato dia e mês.
+     */
     public String dataNow() {
         String mes = "";
         int mesInt = ZonedDateTime.now().getMonthValue();
