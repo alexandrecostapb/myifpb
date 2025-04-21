@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_dark"
+    android:background="@drawable/shape_background_green_lite"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint1"
-        style="@style/BACKGROUND_DARK"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+    <TextView
+        android:id="@+id/textTurno"
+        style="@style/TEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="Turno"
+        android:textSize="22dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textNome"
+        style="@style/TEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="discente!"
+        android:textSize="22dp"
+        app:layout_constraintLeft_toRightOf="@id/textTurno"
+        app:layout_constraintTop_toTopOf="@id/textTurno" />
+
+    <TextView
+        android:id="@+id/textData"
+        style="@style/SUBTEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data atual"
+        android:textSize="14dp"
+        app:layout_constraintLeft_toLeftOf="@id/textTurno"
+        app:layout_constraintTop_toBottomOf="@id/textTurno" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonHorario"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:drawableStart="@drawable/vector_asset_relogio"
+        android:paddingStart="13dp"
+        android:paddingEnd="10dp"
+        android:background="@drawable/shape_button_layout_dark"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textTurno"
-            style="@style/TEXT_WHITE"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="Turno"
-            android:textSize="22dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textNome"
-            style="@style/TEXT_WHITE"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="discente!"
-            android:textSize="22dp"
-            app:layout_constraintLeft_toRightOf="@id/textTurno"
-            app:layout_constraintTop_toTopOf="@id/textTurno" />
-
-        <TextView
-            android:id="@+id/textData"
-            style="@style/TEXT_WHITE"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Data atual"
-            android:textSize="14dp"
-            app:layout_constraintLeft_toLeftOf="@id/textTurno"
-            app:layout_constraintTop_toBottomOf="@id/textTurno" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonHorario"
-            style="@style/TEXT"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/shape_button_layout_dark"
-            android:drawableStart="@drawable/vector_asset_relogio"
-            android:drawablePadding="8dp"
-            android:padding="3dp"
-            android:text="HORÁRIOS"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSobre"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="?"
+        style="@style/TEXT"
+        android:textSize="28dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/shape_button_layout_dark"
+        app:layout_constraintRight_toLeftOf="@id/buttonHorario"
+        app:layout_constraintTop_toTopOf="@id/buttonHorario" />
 
     <ScrollView
-        style="@style/BACKGROUND_LITE"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraint1">
+        app:layout_constraintTop_toBottomOf="@id/textData"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint2"
@@ -205,24 +205,6 @@
                 app:layout_constraintLeft_toRightOf="@id/imageMoodle"
                 app:layout_constraintRight_toRightOf="@id/card1"
                 app:layout_constraintTop_toTopOf="@id/imagePeriodicos" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonSobre"
-                style="@style/TEXT"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="26dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/shape_button_layout_dark"
-                android:drawableStart="@drawable/vector_asset_question"
-                android:drawableTint="@color/background_dark"
-                android:paddingHorizontal="10dp"
-                android:text="SOBRE"
-                android:textSize="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagePeriodicos" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
